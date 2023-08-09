@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Prata&family=Roboto+Mono:ital,wght@1,300&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Bree Serif', serif;
+    box-sizing: border-box;
+}
+
+/* pure page ke liye size define kr diya */
+html{
+    font-size: 62.5%;
+}
+
+/* body related chije define krne ke liye */
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: #f6f6f6;
+    background: linear-gradient(45deg,gray,white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* select krne pr kaise dikhega uske liye */
+::selection{
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+/* heading ke style ko define kiya hai  */
+#heading{
+    position: relative;
+    top: -4rem;
+    font-size: 6rem;
+    letter-spacing: 0.25rem;
+    word-spacing: 1.2rem;
+    font-weight: bolder;
+}
+
+/* if wants to add 2 music list in left and right side of music player then 
+below some commented css style are for that */
+/* #list1,#list2{
+    height: 35rem;
+    width: 32rem;
+    padding: 2.8rem;
+    border-radius: 1.8rem;
+    box-shadow: 0 0rem 2rem 1rem rgba(0, 0, 0, 0.25);
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+}
+
+#list1{
+    left: -12rem;
+}
+
+#list2{
+    left: 12rem;
+} */
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music_container{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    height: 50rem;
+    width: 32rem;
+    padding: 2.8rem;
+    border-radius: 1.8rem;
+    box-shadow: 0 0rem 2rem 1rem rgba(0, 0, 0, 0.25);
+    /* background-color: rgb(255, 255, 255); */
+    background: linear-gradient(135deg,white,gray);
+    /* border: .2rem solid black; */
+}
+
+#title{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    word-spacing: 0.5rem;
+    color: black;
+    margin: 2rem 0 0.5rem 0;
+    font-size: 2.3rem;
+    font-weight: 500;
+    text-shadow: 0 0.3rem 0.5rem rgb(0 0 0 / 40%);
+}
+
+#artist{
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+    font-size: 1.8rem;
+    margin: 1rem 0 3rem ;
+    font-weight: 300;
+}
+
+.img_container{
+    height: 20rem;
+    width: 20rem;
+    margin: auto;
+
+    /* if don't want to use the image then uncomment below 3 lines and comment out img css*/
+    /* box-shadow: 0 0rem 1.5rem .3rem rgba(0, 0, 0, .4); */
+    /* border-radius: 50%; */
+    /* background: linear-gradient(135deg,blue,orange,rgb(247, 5, 5),green); */
+}
+
+/* if using image */
+.img_container img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 2.5rem .5rem rgba(0, 0, 0, 1);
+}
+
+.music_ctrl{
+    width: 19rem;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.music_ctrl .fas{
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#play {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.4rem;
+}
+
+.music_ctrl .fas:hover{
+    color: rgb(255, 255, 255);
+    transform: scale(1.7);
+}
+
+#play:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    box-shadow: 0 0 .4rem .2rem rgba(0,0,0,.3);
+}
+
+.anime{
+    animation-name: rotate;
+    /* animation-delay: 1.5s; */
+    animation-duration: .2s ;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes rotate {
+    from{
+        /* transform: rotate(0deg); */
+        transform: scale(1);
+    }
+    to{
+        /* transform: rotate(360deg); */
+        transform: scale(0.8);
+    }
+}
+
+.progress_duration_meter{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.progressbar_container{
+    /* width: 100%;
+    height: auto; */
+    padding: .3rem 0 .5rem;
+    margin-top: 2rem ;
+}
+
+.progress_div{
+    height: .5rem;
+    border-radius: 4rem;
+    box-shadow: 0 0.1rem .1rem .15rem rgba(0, 0, 0, 0.45);
+    position: relative;
+    margin-top: .5rem;
+    cursor: pointer;
+    /* transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    -webkit-transition: none; 
+    appearance: none; */
+}
+
+/* black line ke liye ye css likha hai nd yha width ko % mai daala hai bcz js ke help se
+usko update krenge dynamically */
+.progress{
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: black;
+    border-radius: 4rem;
+}
+
+#footer{
+    position: relative;
+    top: 8rem;
+    text-align: center;
+    width: 100%;
+    /* background-color: #020202; */
+    color: rgb(0, 0, 0);
+}
